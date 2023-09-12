@@ -1,0 +1,5 @@
+node_modules/
+conf/config.json
+.yarn.installed
+yarn.lock
+package-lock.json

@@ -47,7 +47,9 @@ RegisterCommand('redeem', async (source, args, raw) => {
 
 		emitNet('chat:addMessage', source, { args: [`^2${response.data.message}`] })
 		console.log(`[Xeron] ${GetPlayerName(source)} has redeemed a code!`)
-		await executeCommand(response.data.data.command.replace('{id}', source), server)
+		for(let i = 0; i < response.data.data.quantity; i++) {
+			await executeCommand(response.data.data.command.replace('{id}', source), server)
+		}
 	}
 	else {
 		emitNet('chat:addMessage', source, { args: [`^1${response.data.message}`] })
